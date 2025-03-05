@@ -1,0 +1,370 @@
+#root {
+  text-align: center;
+  padding-bottom: 5%;
+
+  background-color: rgba(70, 130, 180,1);
+}
+
+.section-title {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 0;
+  padding-top: 3%;
+  text-align: center;
+}
+
+
+/*Used in navigation section */
+.header {
+
+  background-image: url("./assets/mountain.svg");
+  /*needed to set the background-size because the image was to large */
+  background-size: cover;
+
+  /*The background image wasn't position properly in the container so I had to move it to the images center */
+  background-position: 50%;
+
+  /*Had to set height, otherwise image would only appear as far as the html elements go */
+  height: 100vh;
+  width: auto;
+  padding: 0;
+}
+
+nav {
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex !important;
+  color:black;
+  flex-wrap: wrap;
+  font-size: 25px;
+  padding-left: 25px;
+}
+
+
+
+.navbar {
+  padding-top: 25px;
+}
+
+/*In CSS there is specificity, basically every css selector has a position in the specificity hierarchy.
+  
+  What this means is that depending on the the selectors used on an html element, only the one whith the highest
+  specificity will be used
+
+  when it comes to elements and classes, classes has higher specificity
+
+  for example when trying to apply transition to the a tag using a{} it wont be used since my a tags are using
+  the .links class, so I needed to move the transition to links in order to use them
+
+*/
+
+.links {
+  padding: 20px 20px;
+  transition: 300ms ease-in-out;
+}
+
+.links:hover {
+  color: rgb(0, 0, 0);
+}
+
+/*Used in about section */
+#about {
+
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(white 70%, rgba(10, 186, 181, 0.7) 100% );
+}
+
+#about img {
+
+  border-radius: 50%;
+  padding: 50px 50px;
+  height: 30%;
+  width: 30%;
+
+}
+
+.description {
+  text-align: left;
+  font-size: 30px;
+  padding-top: 10px;
+}
+
+.description p + p{
+  font-size: 24px;
+}
+
+/*Used in skills section */
+
+#skill {
+  background-image: linear-gradient(rgba(10, 186, 181, 0.7) 70%, rgba(192, 233, 217,0.7)  100% );
+}
+
+.skills {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0% 20%;
+  gap: 40px;
+  row-gap: 100px;
+}
+
+.skills img {
+
+  /*This will allow each image to grow and shrink within the images max width and height */
+  /*It will also make sure that each row will have 5 images by making each image fill 20% of the current line */
+
+  flex: 1 1 calc(20% - 20px);
+  font-size: 20px;
+  max-width: 150px;
+  max-height: 150px;
+
+  /*image keeps its aspect ratio, but is resized to fit within the given dimension */
+  object-fit: contain;
+}
+
+/*Used in projects section*/
+#project{
+  background-image: linear-gradient(rgba(192, 233, 217,0.7) 70%, rgba(70, 130, 180,0.7)  100% );
+}
+
+.projects {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0% 10%;
+}
+
+.projects-item {
+
+  position: relative;
+  height: auto;
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+
+}
+
+.projects-item:hover img{
+  /*helps obscure the background */
+  opacity: 0.3;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  /*Will be inside the flex items container */
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.projects-item:hover .middle{
+  opacity: 1;
+}
+
+.projects img{
+  display:block;
+  font-size: 20px;
+  max-width: 500px;
+  max-height: 500px;
+  border: 5px solid;
+}
+
+.next-page {
+  display:block;
+  background-color: aqua;
+  padding: 20px 30px;
+  cursor: pointer;
+  border-radius: 10%;
+  color:white;
+}
+
+.next-page:hover{
+  color:white;
+}
+
+/*Used in contact section*/
+
+#contact{
+  background-image: linear-gradient( rgba(70, 130, 180,0.7) 70%, rgba(70, 130, 180,0.7)  100% );
+}
+
+.contact-flex{
+  display:flex;
+  padding: 0% 10%;
+  gap: 10px;
+}
+
+.contact-info{
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-item{
+
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+  justify-content: start;
+}
+
+.contact-info span{
+  text-decoration: underline;
+  font-size: large;
+  text-align: left;
+}
+
+.contact-info a{
+  color:white;
+}
+
+.contact-info img{
+  width:10%;
+  height:auto;
+}
+
+.contact-icon{
+  text-align:left;
+  row-gap: 10px;
+}
+
+.message{
+  /*Can't apply flex-direction on a flex item, need to create a new flexbox */
+  display:flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  overflow: hidden;
+  max-width: 400px;
+  width: 100%;
+}
+
+input{
+  height:30px;
+  width: auto;
+}
+
+.message textarea{
+
+  width: 100%;
+  max-width: 450px;
+  padding: 8px;
+  font-size: 16px;
+
+}
+
+.send-button {
+
+  height: 20%;
+  width: 35%;
+  background-color: whitesmoke;
+  border-radius: 10%;
+  transition: 300ms ease-in-out;
+}
+
+.send-button:hover{
+
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+/*Used for when page is on a mobile phone */
+
+/*Just like any other program file the query wont be applied to any other class until they are declared */
+
+@media only screen and (max-width: 600px) {
+  .header {
+    height: 50vh;
+    width: auto;
+  }
+
+  nav{
+    font-size: 15px;
+  }
+
+  .navbar{
+    padding-top: 15px;
+  }
+
+  .navbar p{
+    padding-left: 20px;
+  }
+
+  .description {
+    text-align: left;
+    font-size: 15px;
+    padding: 30px 10px;
+  }
+  
+  .description p{
+    margin: 0;
+  }
+
+  .description p + p{
+    margin-top: 1em;
+    font-size: 12px;
+  }
+
+  .sectiontitle {
+    font-size: 30px;
+  }
+
+  #about img{
+    padding: 25px 50px
+  }
+
+  .skills {
+
+    padding: 0% 20%;
+    gap: 20px;
+    row-gap: 50px;
+  }
+  
+  .skills img {
+  
+    flex: 1 1 calc(20% - 10px);
+    font-size: 10px;
+    max-width: 75px;
+    max-height: 75px;
+  
+    object-fit: contain;
+  }
+
+  .projects img{
+    display:block;
+    font-size: 20px;
+    max-width: 200px;
+    max-height: 200px;
+    border: 5px solid;
+  
+  }
+
+  .contact-flex{
+    padding: 0;
+  }
+
+  .contact-info a{
+    font-size: small;
+  }
+
+  .send-button {
+
+    height: 30%;
+    width: 50%;
+  }
+
+  .message textarea{
+    max-width: 190px;
+  }
+
+}
