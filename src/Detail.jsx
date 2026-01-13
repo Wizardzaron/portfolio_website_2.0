@@ -30,7 +30,7 @@ export default function Detail() {
 
 
     return (
-        <div id="root">
+        <div className="project">
 
             <img className="main-image" src={mainImage} alt="Main Image"/>
 
