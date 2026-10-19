@@ -25,3 +25,6 @@ dist-ssr
 
 .env
 .history/
+
+INTERVIEW_QA.md
+PORTFOLIO_WALKTHROUGH.md
